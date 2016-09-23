@@ -4,6 +4,9 @@ Script to clean Illumina pair-end sequences produced with the Nextera kit. Bases
 Dependencies
 
 You need the following programs in your PATH:
+
 Trim_galore!
+
 FastQC
+
 FASTX-Toolkit
