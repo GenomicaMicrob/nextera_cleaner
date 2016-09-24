@@ -5,7 +5,7 @@ You need the nextera.adapter in the same folder as the script; this file is nece
 
 ##INSTALLATION.
 
-As with any bash script, just make it executable: chmod +x nextera_cleaner.sh_
+As with any bash script, just make it executable: ```chmod +x nextera_cleaner.sh```
 
 ##USAGE.
 
