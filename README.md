@@ -12,9 +12,11 @@ and run FastQC on resulting files.
 
 ## INSTALLATION ##
 
-Download the latest [release](https://github.com/GenomicaMicrob/nextera_cleaner/releases/latest) to any directory in your system and, as with any bash script, just make it executable: ```chmod +x nextera_cleaner.v0.1.0.sh```
+1. Download the latest [release](https://github.com/GenomicaMicrob/nextera_cleaner/releases/latest) to any directory in your system.
+2. Decompress `tar xzf nextera_cleaner.v0.1.0.tar.gz`
+3. Make it executable: `chmod +x nextera_cleaner.v0.1.0.sh`
 
-You need also the **nextera_adapter.tsv** and the **contaminants.tsv** files to the same folder as the script; this files are desirable for FastQC.
+Be sure to keep the `nextera_adapter.tsv` and the `contaminants.tsv` files in the same folder as the script; this files are desirable for FastQC.
 
 You can then create a symbolic link to the script so you call it from any directory.
 
