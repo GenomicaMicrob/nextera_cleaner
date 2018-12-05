@@ -1,15 +1,26 @@
 # nextera_cleaner
-Bash script to clean Illumina pair-end sequences produced with the Nextera kit. Bases below Q30, Ns, and Nextera adapters are removed. Bases can also be removed at the beginning and end of each sequence. At the end, clean files can be analyzed with FastQC.
+Bash script to clean Illumina pair-end sequences produced with the Nextera kit.
+
+This script will process both pair-end sequences, asks for a common
+name for the resulting sequences, trims bases below a Phred score value, removes N's
+and sequences below 20 bases. It can also deletes bases from the
+beggining of the sequences and also trim the sequences to a certain length
+by removing bases from the 3' end of the sequence.
+If files are compressed (.gz) it will automatically decompress them.
+After this, it will ask whether you want to merge the pair-end sequences (with flash), convert them to fasta,
+and run FastQC on resulting files.
 
 ## INSTALLATION ##
 
-Download **nextera_cleaner.sh** and **nextera.adapter** to any directory in your system and as with any bash script, just make it executable: ```chmod +x nextera_cleaner.sh```
+Download the latest [release](https://github.com/GenomicaMicrob/nextera_cleaner/releases/latest) to any directory in your system and, as with any bash script, just make it executable: ```chmod +x nextera_cleaner.v0.1.0.sh```
 
-You need the **nextera.adapter** file in the same folder as the script; this file is necessary for FastQC.
+You need also the **nextera_adapter.tsv** and the **contaminants.tsv** files to the same folder as the script; this files are desirable for FastQC.
+
+You can then create a symbolic link to the script so you call it from any directory.
 
 ## USAGE ##
 
-`$ nextera_cleaner file_R1.fastq file_R2.fastq`
+`$ nextera_cleaner.v0.1.0.sh file_R1.fastq file_R2.fastq`
 
 Where `file_R1.fastq` `file_R2.fastq` are the files provided by the Illumina sequencer.
 
@@ -19,10 +30,12 @@ The script will ask if you want to trim some bases at the beginning of the seque
 
 You need the following programs in your PATH:
 
--[Trim_galore](https://github.com/FelixKrueger/TrimGalore)
+-[Cutadapt](https://github.com/marcelm/cutadapt)
+
+And if you want to merge the sequences:
+
+-[flash](https://ccb.jhu.edu/software/FLASH/)
+
+Finally, FastQC is optional
 
 -[FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc)
-
--[FASTX-Toolkit](https://github.com/agordon/fastx_toolkit)
-
--[Cutadapt](https://github.com/marcelm/cutadapt)
